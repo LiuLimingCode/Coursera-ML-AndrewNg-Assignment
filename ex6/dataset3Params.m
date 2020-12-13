@@ -23,11 +23,26 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+params = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30];
+means = zeros(size(params, 2), size(params, 2));
 
+for alpha = 1 : size(params, 2)
+   for beta = 1 : size(params, 2)
+   C = params(alpha);
+   sigma = params(beta);
+   
+   model = svmTrain(X, y, C, @(x1, x2)gaussianKernel(x1, x2, sigma));
+   predictions = svmPredict(model, Xval);
+   means(alpha, beta) = mean(double(predictions ~= yval));
+   
+   end
+end
 
+[minRow,indexRow] = min(means,[],1);
+[minCol,indexCol] = min(minRow,[],2);
 
-
-
+sigma = params(indexCol);
+C = params(indexRow(indexCol));
 
 % =========================================================================
 

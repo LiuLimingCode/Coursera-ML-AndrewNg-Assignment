@@ -185,8 +185,8 @@ idx = alphas > 0;
 model.X= X(idx,:);
 model.y= Y(idx);
 model.kernelFunction = kernelFunction;
-model.b= b;
+model.b= b; % theta0
 model.alphas= alphas(idx);
-model.w = ((alphas.*Y)'*X)';
+model.w = ((alphas.*Y)'*X)'; % theta
 
 end
