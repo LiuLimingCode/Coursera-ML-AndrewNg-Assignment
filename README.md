@@ -1,4 +1,4 @@
-# [Andrew Ng深度学习网课](https://www.coursera.org/learn/machine-learning)实验代码以及笔记
+# [Andrew Ng机器学习网课](https://www.coursera.org/learn/machine-learning)实验代码以及笔记
 
 ### 课程内容：
 
